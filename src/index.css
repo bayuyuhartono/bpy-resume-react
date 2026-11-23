@@ -179,9 +179,41 @@
   -webkit-text-stroke: 1.5px var(--input);
 }
 
-@utility animate-spin-slow {
-  animation: spin 18s linear infinite;
-  transform-origin: 50% 50%;
+/* Gelap di bawah hero supaya teks terbaca dan menyatu dengan pita marquee di bawahnya */
+@utility bg-hero-scrim {
+  background-image: linear-gradient(
+    0deg,
+    var(--background) 0%,
+    color-mix(in oklch, var(--background) 90%, transparent) 18%,
+    color-mix(in oklch, var(--background) 20%, transparent) 60%,
+    color-mix(in oklch, var(--background) 35%, transparent) 100%
+  );
+  @media (width >= 48rem) {
+    background-image: linear-gradient(
+      0deg,
+      var(--background) 0%,
+      color-mix(in oklch, var(--background) 85%, transparent) 14%,
+      transparent 45%
+    );
+  }
+}
+
+/* Marquee: track berisi konten yang diduplikasi, digeser -50% lalu berulang tanpa jeda */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 45s linear infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@utility animate-marquee-reverse {
+  animation: marquee 45s linear infinite reverse;
   @media (prefers-reduced-motion: reduce) {
     animation: none;
   }

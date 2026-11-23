@@ -1,5 +1,21 @@
 import type { Education, Experience, LabelValue, NumberedItem, Stat } from "@/types/content"
 
+/** Isi dua pita marquee di bawah hero. */
+export const RIBBONS = {
+  stack: [
+    "React Native",
+    "Flutter",
+    "Laravel",
+    "Node.js",
+    "TypeScript",
+    "React",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+  ],
+  services: ["Mobile apps", "Web platforms", "Backend & APIs", "Full-stack", "End-to-end delivery"],
+}
+
 export const CLIENTS = ["Juragan99", "Pintar Ventura", "Katadata", "Untar", "Raja Konstruksi"]
 
 export const ABOUT = {

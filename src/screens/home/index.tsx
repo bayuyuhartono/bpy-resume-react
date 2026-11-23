@@ -2,7 +2,15 @@ import { toast } from "sonner"
 import { ProjectCard } from "@/components/molecules/project-card"
 import { SiteHeader } from "@/components/organisms/site-header"
 import { SiteLayout } from "@/components/templates/site-layout"
-import { ABOUT, CLIENTS, EDUCATION, EXPERIENCE, LANGUAGES, PROCESS } from "@/content/profile"
+import {
+  ABOUT,
+  CLIENTS,
+  EDUCATION,
+  EXPERIENCE,
+  LANGUAGES,
+  PROCESS,
+  RIBBONS,
+} from "@/content/profile"
 import { projectNumber } from "@/content/project-helpers"
 import { PROJECTS } from "@/content/projects"
 import { useDocumentTitle } from "@/hooks/use-document-title"
@@ -16,6 +24,7 @@ import { ExperienceSection } from "./components/organisms/experience-section"
 import { HeroSection } from "./components/organisms/hero-section"
 import { HomeFooter } from "./components/organisms/home-footer"
 import { ProcessSection } from "./components/organisms/process-section"
+import { StackRibbons } from "./components/organisms/stack-ribbons"
 import { WorkSection } from "./components/organisms/work-section"
 import { buildMailto } from "./lib/build-mailto"
 import type { ContactFormValues } from "./schemas/contact-schema"
@@ -36,6 +45,7 @@ export function HomeScreen() {
       footer={<HomeFooter />}
     >
       <HeroSection />
+      <StackRibbons {...RIBBONS} />
       <ClientsStrip clients={CLIENTS} />
       <AboutSection {...ABOUT} />
       <WorkSection>

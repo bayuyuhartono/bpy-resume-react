@@ -29,7 +29,6 @@ export const SITE = {
   email: "bayuyuhartono@gmail.com",
   cvPath: "/cv.pdf",
   copyrightYear: 2026,
-  badgeText: "SOFTWARE ENGINEER • BASED IN JAKARTA • ",
 } as const
 
 export const SOCIAL_LINKS = [

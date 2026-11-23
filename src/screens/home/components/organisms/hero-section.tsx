@@ -18,12 +18,9 @@ export function HeroSection() {
         fetchPriority="high"
         className="absolute inset-0 size-full object-cover object-[70%_0%] md:object-[78%_0%]"
       />
-      <div
-        aria-hidden="true"
-        className="from-background/95 via-background/20 to-background/35 md:from-background/85 absolute inset-0 bg-linear-to-t via-55% md:via-transparent md:via-40% md:to-transparent"
-      />
+      <div aria-hidden="true" className="bg-hero-scrim absolute inset-0" />
 
-      <div className="container-page relative z-10 mt-auto flex flex-col gap-6 pb-18 md:flex-row md:flex-wrap md:items-end md:justify-between md:pb-[clamp(56px,7vw,96px)]">
+      <div className="container-page relative z-10 mt-auto flex flex-col gap-6 pb-35 md:flex-row md:flex-wrap md:items-end md:justify-between md:pb-[clamp(150px,14vw,200px)]">
         <div className="flex flex-col gap-4 md:gap-4.5">
           <SectionLabel tone="subtle">{SITE.tagline}</SectionLabel>
           <DisplayHeading as="h1" size="hero">
@@ -50,33 +47,6 @@ export function HeroSection() {
           <SocialLinks />
         </div>
       </div>
-
-      <RotatingBadge />
     </section>
-  )
-}
-
-/** Badge bulat berputar di batas bawah hero (desktop saja, sesuai design mobile). */
-function RotatingBadge() {
-  return (
-    <div
-      aria-hidden="true"
-      className="bg-primary ring-background absolute -bottom-16 left-1/2 z-10 hidden size-32 -translate-x-1/2 rounded-full ring-8 md:block"
-    >
-      <svg viewBox="0 0 128 128" className="animate-spin-slow absolute inset-0 size-full">
-        <defs>
-          <path id="hero-badge-ring" d="M64 64 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0" />
-        </defs>
-        <text className="fill-primary-foreground font-sans text-[10.5px] font-bold tracking-[2.6px]">
-          <textPath href="#hero-badge-ring">{SITE.badgeText}</textPath>
-        </text>
-      </svg>
-      <svg viewBox="0 0 128 128" className="absolute inset-0 size-full">
-        <path
-          d="M64 44 C66 58 70 62 84 64 C70 66 66 70 64 84 C62 70 58 66 44 64 C58 62 62 58 64 44 Z"
-          className="fill-primary-foreground"
-        />
-      </svg>
-    </div>
   )
 }

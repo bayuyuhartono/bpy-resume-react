@@ -5,7 +5,7 @@ export type ClientsStripProps = {
 export function ClientsStrip({ clients }: ClientsStripProps) {
   return (
     <section aria-label="Clients" className="border-b">
-      <div className="container-page py-8 md:pt-28 md:pb-14">
+      <div className="container-page py-8 md:py-14">
         <ul className="bg-border grid grid-cols-2 gap-px border md:grid-cols-[repeat(auto-fit,minmax(170px,1fr))]">
           {clients.map((client) => (
             <li
