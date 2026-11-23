@@ -55,7 +55,7 @@ export const SITE = {
 export const GTM_ID = "GTM-WSNX3KL9"
 
 /** Token verifikasi Google Search Console (metode HTML tag). Publik, aman di-commit. */
-export const GOOGLE_SITE_VERIFICATION = "jyqR4tJZyY92h9PDqtscB2YtIVOu1bzgK5"
+export const GOOGLE_SITE_VERIFICATION = "jyqR4tJZyY92h9PDqtscB2YtIVOu1bzgK5-AQnVWVo4"
 
 /** Pemisah antar item di pita marquee (gaya akhir statement kode). */
 export const MARQUEE_SEPARATOR = ";"
