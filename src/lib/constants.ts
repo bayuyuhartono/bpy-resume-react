@@ -31,6 +31,9 @@ export const SITE = {
   copyrightYear: 2026,
 } as const
 
+/** Pemisah antar item di pita marquee (gaya akhir statement kode). */
+export const MARQUEE_SEPARATOR = ";"
+
 export const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/bayuyuhartono" },
   { label: "GitHub", href: "https://github.com/bayuyuhartono" },

@@ -1,4 +1,5 @@
 import { Fragment } from "react"
+import { MARQUEE_SEPARATOR } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 
 export type MarqueeRibbonProps = {
@@ -8,6 +9,8 @@ export type MarqueeRibbonProps = {
   direction?: "left" | "right"
   /** Jumlah salinan konten di track; harus genap agar geser -50% berulang mulus. */
   copies?: number
+  /** Pemisah antar item; default titik koma. */
+  separator?: string
   className?: string
 }
 
@@ -20,6 +23,7 @@ export function MarqueeRibbon({
   tone = "light",
   direction = "left",
   copies = 4,
+  separator = MARQUEE_SEPARATOR,
   className,
 }: MarqueeRibbonProps) {
   return (
@@ -44,12 +48,20 @@ export function MarqueeRibbon({
           >
             {items.map((item) => (
               <Fragment key={item}>
-                {item}
+                <span>{item}</span>
+                {/*
+                  Elemen sendiri supaya jarak kiri-kanan sama (gap flex).
+                  Titik koma Anton duduk 0.12em di bawah tengah huruf kapital (diukur dari tinta
+                  glyph), jadi dinaikkan agar sejajar tengah teks.
+                */}
                 <span
                   aria-hidden="true"
-                  className={tone === "light" ? "text-primary" : "text-primary-foreground/60"}
+                  className={cn(
+                    "inline-block -translate-y-[0.12em]",
+                    tone === "light" ? "text-primary" : "text-primary-foreground/60",
+                  )}
                 >
-                  ✦
+                  {separator}
                 </span>
               </Fragment>
             ))}
