@@ -29,6 +29,23 @@ export const SITE = {
   email: "bayuyuhartono@gmail.com",
   cvPath: "/cv.pdf",
   copyrightYear: 2026,
+  /**
+   * Domain produksi, tanpa garis miring di akhir. Dipakai untuk canonical, Open Graph,
+   * sitemap.xml dan robots.txt. TODO: ganti dengan domain final.
+   */
+  url: "https://bayuyuhartono.com",
+  description:
+    "Bayu Yuhartono — software engineer building mobile, web and backend systems. Founder of Pesoros Dev, based in Jakarta.",
+  locale: "en_US",
+  /** Gambar Open Graph default (1200×630) di folder public/. */
+  ogImage: {
+    path: "/og-image.png",
+    width: 1200,
+    height: 630,
+    alt: "Bayu Yuhartono – Software Engineer",
+  },
+  /** Organisasi saat ini untuk data terstruktur (JSON-LD). */
+  worksFor: "Pesoros Dev",
 } as const
 
 /** Pemisah antar item di pita marquee (gaya akhir statement kode). */

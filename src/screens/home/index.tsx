@@ -13,7 +13,8 @@ import {
 } from "@/content/profile"
 import { projectNumber } from "@/content/project-helpers"
 import { PROJECTS } from "@/content/projects"
-import { useDocumentTitle } from "@/hooks/use-document-title"
+import { homeMeta } from "@/content/page-meta"
+import { usePageMeta } from "@/hooks/use-page-meta"
 import { ROUTES, SECTION_IDS, SITE } from "@/lib/constants"
 import { AboutSection } from "./components/organisms/about-section"
 import { ClientsStrip } from "./components/organisms/clients-strip"
@@ -30,7 +31,7 @@ import { buildMailto } from "./lib/build-mailto"
 import type { ContactFormValues } from "./schemas/contact-schema"
 
 export function HomeScreen() {
-  useDocumentTitle(SITE.title)
+  usePageMeta(homeMeta())
 
   function handleContactSubmit(values: ContactFormValues) {
     window.location.assign(buildMailto(values))

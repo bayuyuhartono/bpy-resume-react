@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import { SiteFooterBar } from "@/components/molecules/site-footer-bar"
 import { SiteHeader } from "@/components/organisms/site-header"
 import { SiteLayout } from "@/components/templates/site-layout"
 import { getNextProject, getProject, projectNumber } from "@/content/project-helpers"
-import { useDocumentTitle } from "@/hooks/use-document-title"
-import { ROUTES, SECTION_IDS, SITE } from "@/lib/constants"
+import { notFoundMeta, projectMeta } from "@/content/page-meta"
+import { usePageMeta } from "@/hooks/use-page-meta"
+import { ROUTES, SECTION_IDS } from "@/lib/constants"
 import { NotFoundScreen } from "@/screens/not-found"
 import { NextProject } from "./components/organisms/next-project"
 import { ProjectCover } from "./components/organisms/project-cover"
@@ -20,10 +21,9 @@ export function ProjectScreen() {
   const { slug } = useParams()
   const project = getProject(slug)
   const next = project && getNextProject(project.slug)
+  const { pathname } = useLocation()
 
-  useDocumentTitle(
-    project ? `${project.cardTitle} – ${SITE.name}` : `Page not found – ${SITE.name}`,
-  )
+  usePageMeta(project ? projectMeta(project) : notFoundMeta(pathname))
 
   if (!project || !next) return <NotFoundScreen />
 

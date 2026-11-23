@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { AccentMark } from "@/components/atoms/accent-mark"
 import { ArrowCircle } from "@/components/atoms/arrow-circle"
 import { DisplayHeading } from "@/components/atoms/display-heading"
@@ -7,11 +7,13 @@ import { SiteFooterBar } from "@/components/molecules/site-footer-bar"
 import { SiteHeader } from "@/components/organisms/site-header"
 import { SiteLayout } from "@/components/templates/site-layout"
 import { Button } from "@/components/ui/button"
-import { useDocumentTitle } from "@/hooks/use-document-title"
+import { notFoundMeta } from "@/content/page-meta"
+import { usePageMeta } from "@/hooks/use-page-meta"
 import { ROUTES, SECTION_IDS, SITE } from "@/lib/constants"
 
 export function NotFoundScreen() {
-  useDocumentTitle(`Page not found – ${SITE.name}`)
+  const { pathname } = useLocation()
+  usePageMeta(notFoundMeta(pathname))
 
   return (
     <SiteLayout
