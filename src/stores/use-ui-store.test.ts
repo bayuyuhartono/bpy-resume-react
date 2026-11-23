@@ -5,13 +5,14 @@ const initial = useUiStore.getState()
 afterEach(() => useUiStore.setState(initial, true))
 
 describe("useUiStore", () => {
-  it("setTheme mengubah tema", () => {
-    useUiStore.getState().setTheme("dark")
-    expect(useUiStore.getState().theme).toBe("dark")
+  it("menu mobile tertutup secara default", () => {
+    expect(useUiStore.getState().mobileNavOpen).toBe(false)
   })
 
-  it("toggleSidebar membalik sidebarOpen", () => {
-    useUiStore.getState().toggleSidebar()
-    expect(useUiStore.getState().sidebarOpen).toBe(false)
+  it("setMobileNavOpen membuka dan menutup menu", () => {
+    useUiStore.getState().setMobileNavOpen(true)
+    expect(useUiStore.getState().mobileNavOpen).toBe(true)
+    useUiStore.getState().setMobileNavOpen(false)
+    expect(useUiStore.getState().mobileNavOpen).toBe(false)
   })
 })

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "cn"
+import { cn } from "@/lib/utils"
 import { Slot } from "radix-ui"
 
 const buttonVariants = cva(
@@ -18,6 +18,14 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
+        // Varian portfolio: tombol pill dengan label uppercase
+        pill: "rounded-full bg-primary type-label text-primary-foreground hover:bg-primary/90",
+        "pill-light":
+          "rounded-full bg-foreground type-label text-background hover:bg-foreground/90",
+        "pill-outline":
+          "rounded-full border-foreground/35 type-label text-foreground hover:border-foreground/60 hover:bg-foreground/5",
+        "icon-outline":
+          "rounded-full border-foreground/35 text-foreground hover:border-foreground/60 hover:bg-foreground/5",
       },
       size: {
         default:
@@ -31,6 +39,11 @@ const buttonVariants = cva(
         "icon-sm":
           "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9",
+        "pill-sm":
+          "h-11 gap-3 px-5 text-label has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-end]:pl-4.5 has-data-[icon=inline-start]:pr-4.5 has-data-[icon=inline-start]:pl-1.5",
+        "pill-lg":
+          "min-h-13 gap-3 px-6 text-label has-data-[icon=inline-end]:justify-between has-data-[icon=inline-end]:pr-2",
+        "icon-pill": "size-11 [&_svg:not([class*='size-'])]:size-4",
       },
     },
     defaultVariants: {

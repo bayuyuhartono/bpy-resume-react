@@ -1,20 +1,59 @@
-import { DashboardLayout } from "@/components/templates/dashboard-layout"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { toast } from "sonner"
+import { ProjectCard } from "@/components/molecules/project-card"
+import { SiteHeader } from "@/components/organisms/site-header"
+import { SiteLayout } from "@/components/templates/site-layout"
+import { ABOUT, CLIENTS, EDUCATION, EXPERIENCE, LANGUAGES, PROCESS } from "@/content/profile"
+import { projectNumber } from "@/content/project-helpers"
+import { PROJECTS } from "@/content/projects"
+import { useDocumentTitle } from "@/hooks/use-document-title"
+import { ROUTES, SECTION_IDS, SITE } from "@/lib/constants"
+import { AboutSection } from "./components/organisms/about-section"
+import { ClientsStrip } from "./components/organisms/clients-strip"
+import { ContactForm } from "./components/organisms/contact-form"
+import { ContactSection } from "./components/organisms/contact-section"
+import { EducationSection } from "./components/organisms/education-section"
+import { ExperienceSection } from "./components/organisms/experience-section"
+import { HeroSection } from "./components/organisms/hero-section"
+import { HomeFooter } from "./components/organisms/home-footer"
+import { ProcessSection } from "./components/organisms/process-section"
+import { WorkSection } from "./components/organisms/work-section"
+import { buildMailto } from "./lib/build-mailto"
+import type { ContactFormValues } from "./schemas/contact-schema"
 
 export function HomeScreen() {
+  useDocumentTitle(SITE.title)
+
+  function handleContactSubmit(values: ContactFormValues) {
+    window.location.assign(buildMailto(values))
+    toast.success("Opening your email app…", {
+      description: `If nothing opens, email me at ${SITE.email}.`,
+    })
+  }
+
   return (
-    <DashboardLayout title="Home">
-      <Card>
-        <CardHeader>
-          <CardTitle>Project siap dipakai</CardTitle>
-          <CardDescription>
-            Vite + React + Tailwind + shadcn/ui + TanStack Query + Zustand.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="text-muted-foreground text-sm">
-          Mulai edit di <code>src/screens/home/index.tsx</code>.
-        </CardContent>
-      </Card>
-    </DashboardLayout>
+    <SiteLayout
+      header={<SiteHeader variant="home" activeSection={SECTION_IDS.top} overlay />}
+      footer={<HomeFooter />}
+    >
+      <HeroSection />
+      <ClientsStrip clients={CLIENTS} />
+      <AboutSection {...ABOUT} />
+      <WorkSection>
+        {PROJECTS.map((project) => (
+          <ProjectCard
+            key={project.slug}
+            project={project}
+            number={projectNumber(project.slug) ?? ""}
+            href={ROUTES.project(project.slug)}
+          />
+        ))}
+      </WorkSection>
+      <ProcessSection steps={PROCESS} />
+      <ExperienceSection items={EXPERIENCE} />
+      <EducationSection education={EDUCATION} languages={LANGUAGES} />
+      <ContactSection>
+        <ContactForm onSubmit={handleContactSubmit} />
+      </ContactSection>
+    </SiteLayout>
   )
 }
