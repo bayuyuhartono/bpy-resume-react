@@ -9,6 +9,8 @@ describe("metaForPath", () => {
     expect((meta.jsonLd as { sameAs: string[] }).sameAs).toEqual(
       expect.arrayContaining([expect.stringContaining("linkedin.com")]),
     )
+    // Link chat WhatsApp bukan halaman profil
+    expect((meta.jsonLd as { sameAs: string[] }).sameAs.join()).not.toContain("wa.me")
   })
 
   it("halaman project memakai judul, intro dan cover project", () => {

@@ -10,6 +10,8 @@ const sectionLabelVariants = cva("type-label", {
       subtle: "text-subtle-foreground",
       muted: "text-muted-foreground",
       faint: "text-faint-foreground",
+      /** Di atas bidang primary. */
+      inverse: "text-primary-foreground/75",
     },
     size: {
       md: "text-label-sm md:text-label",

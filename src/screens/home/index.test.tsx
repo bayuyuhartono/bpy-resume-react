@@ -25,4 +25,18 @@ describe("HomeScreen", () => {
     renderWithProviders(<HomeScreen />)
     expect(screen.getByRole("link", { name: /download cv/i })).toHaveAttribute("href", "/cv.pdf")
   })
+
+  it("semua link WhatsApp (hero, contact, footer) membuka chat dengan pesan pembuka", () => {
+    renderWithProviders(<HomeScreen />)
+    const links = screen.getAllByRole("link", { name: /whatsapp/i })
+    const chatLinks = links.filter((link) => !link.getAttribute("href")?.startsWith("/work/"))
+    expect(chatLinks).toHaveLength(3)
+    chatLinks.forEach((link) => {
+      expect(link).toHaveAttribute(
+        "href",
+        "https://wa.me/6281288855773?text=Hi%20Bayu%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk.",
+      )
+      expect(link).toHaveAttribute("target", "_blank")
+    })
+  })
 })

@@ -16,6 +16,7 @@ import { PROJECTS } from "@/content/projects"
 import { homeMeta } from "@/content/page-meta"
 import { usePageMeta } from "@/hooks/use-page-meta"
 import { ROUTES, SECTION_IDS, SITE } from "@/lib/constants"
+import { LabelDivider } from "./components/molecules/label-divider"
 import { AboutSection } from "./components/organisms/about-section"
 import { ClientsStrip } from "./components/organisms/clients-strip"
 import { ContactForm } from "./components/organisms/contact-form"
@@ -26,6 +27,7 @@ import { HeroSection } from "./components/organisms/hero-section"
 import { HomeFooter } from "./components/organisms/home-footer"
 import { ProcessSection } from "./components/organisms/process-section"
 import { StackRibbons } from "./components/organisms/stack-ribbons"
+import { WhatsappCallout } from "./components/organisms/whatsapp-callout"
 import { WorkSection } from "./components/organisms/work-section"
 import { buildMailto } from "./lib/build-mailto"
 import type { ContactFormValues } from "./schemas/contact-schema"
@@ -63,6 +65,8 @@ export function HomeScreen() {
       <ExperienceSection items={EXPERIENCE} />
       <EducationSection education={EDUCATION} languages={LANGUAGES} />
       <ContactSection>
+        <WhatsappCallout />
+        <LabelDivider>or send a message</LabelDivider>
         <ContactForm onSubmit={handleContactSubmit} />
       </ContactSection>
     </SiteLayout>

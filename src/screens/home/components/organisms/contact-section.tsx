@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/molecules/section-heading"
 import { SECTION_IDS } from "@/lib/constants"
 
 export type ContactSectionProps = {
-  /** Form contact disusun oleh screen. */
+  /** Isi contact (WhatsApp, form) disusun oleh screen. */
   children: ReactNode
 }
 

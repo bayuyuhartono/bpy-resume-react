@@ -1,9 +1,15 @@
 import { cn } from "@/lib/utils"
 
+const TONE_CLASS = {
+  primary: "bg-primary text-primary-foreground",
+  inverse: "bg-primary-foreground text-background",
+  dark: "bg-background text-primary-foreground",
+} as const
+
 export type ArrowCircleProps = {
   direction?: "right" | "left"
-  /** primary = lingkaran biru panah putih; inverse = lingkaran putih panah gelap. */
-  tone?: "primary" | "inverse"
+  /** primary = lingkaran biru panah putih; inverse = lingkaran putih panah gelap; dark = lingkaran gelap panah putih. */
+  tone?: keyof typeof TONE_CLASS
   size?: "sm" | "lg"
   className?: string
 }
@@ -22,9 +28,7 @@ export function ArrowCircle({
       className={cn(
         "inline-flex shrink-0 items-center justify-center rounded-full",
         size === "sm" ? "size-8" : "size-10 md:size-9",
-        tone === "primary"
-          ? "bg-primary text-primary-foreground"
-          : "bg-primary-foreground text-background",
+        TONE_CLASS[tone],
         className,
       )}
     >

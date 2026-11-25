@@ -28,7 +28,12 @@ export function HomeFooter() {
               Social
             </SectionLabel>
             {SOCIAL_LINKS.map((link) => (
-              <a key={link.label} href={link.href} className={LINK_CLASS}>
+              <a
+                key={link.label}
+                href={link.href}
+                className={LINK_CLASS}
+                {...(link.kind === "chat" ? { target: "_blank", rel: "noreferrer" } : {})}
+              >
                 {link.label}
               </a>
             ))}

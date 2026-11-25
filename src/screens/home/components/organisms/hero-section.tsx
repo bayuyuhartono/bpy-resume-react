@@ -32,19 +32,21 @@ export function HeroSection() {
             </span>
           </DisplayHeading>
         </div>
-        {/* flex-wrap: di layar sangat sempit (≤ 340px) ikon sosial turun ke baris kedua */}
+        {/* flex-wrap: di layar sangat sempit (< 360px) grup ikon sosial turun ke baris kedua */}
         <div className="flex flex-wrap items-center gap-2 md:gap-2.5">
           <Button
             asChild
             variant="pill"
             size="pill-sm"
-            className="h-12 flex-[1_1_160px] md:h-11 md:flex-none"
+            className="text-label-sm md:text-label h-12 flex-[1_1_108px] px-0 md:h-11 md:flex-none md:px-5"
           >
             <a href={SITE.cvPath} download>
               Download CV
             </a>
           </Button>
-          <SocialLinks />
+          <div className="flex items-center gap-2 md:gap-2.5">
+            <SocialLinks />
+          </div>
         </div>
       </div>
     </section>

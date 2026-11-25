@@ -60,10 +60,22 @@ export const GOOGLE_SITE_VERIFICATION = "jyqR4tJZyY92h9PDqtscB2YtIVOu1bzgK5-AQnV
 /** Pemisah antar item di pita marquee (gaya akhir statement kode). */
 export const MARQUEE_SEPARATOR = ";"
 
+const WHATSAPP_NUMBER = "6281288855773"
+const WHATSAPP_GREETING = "Hi Bayu, I saw your portfolio and would like to talk."
+
+export const WHATSAPP = {
+  /** Nomor untuk ditampilkan; harus sama dengan WHATSAPP_NUMBER. */
+  display: "+62 812-8885-5773",
+  /** Link chat dengan pesan pembuka yang sudah terisi. */
+  href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_GREETING)}`,
+} as const
+
+/** `kind`: hanya "profile" yang masuk data terstruktur (sameAs). */
 export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/bayuyuhartono" },
-  { label: "GitHub", href: "https://github.com/bayuyuhartono" },
-  { label: "Email", href: `mailto:${SITE.email}` },
+  { label: "LinkedIn", kind: "profile", href: "https://www.linkedin.com/in/bayuyuhartono" },
+  { label: "GitHub", kind: "profile", href: "https://github.com/bayuyuhartono" },
+  { label: "WhatsApp", kind: "chat", href: WHATSAPP.href },
+  { label: "Email", kind: "email", href: `mailto:${SITE.email}` },
 ] as const
 
 export type SocialLabel = (typeof SOCIAL_LINKS)[number]["label"]

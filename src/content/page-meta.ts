@@ -20,7 +20,7 @@ export function homeMeta(): PageMeta {
       email: `mailto:${SITE.email}`,
       worksFor: { "@type": "Organization", name: SITE.worksFor },
       address: { "@type": "PostalAddress", addressLocality: "Jakarta", addressCountry: "ID" },
-      sameAs: SOCIAL_LINKS.filter((link) => link.href.startsWith("http")).map((link) => link.href),
+      sameAs: SOCIAL_LINKS.filter((link) => link.kind === "profile").map((link) => link.href),
     },
   }
 }

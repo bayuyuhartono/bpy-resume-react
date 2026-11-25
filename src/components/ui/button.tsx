@@ -22,6 +22,9 @@ const buttonVariants = cva(
         pill: "rounded-full bg-primary type-label text-primary-foreground hover:bg-primary/90",
         "pill-light":
           "rounded-full bg-foreground type-label text-background hover:bg-foreground/90",
+        // Putih penuh, untuk tombol di atas bidang primary
+        "pill-inverse":
+          "rounded-full bg-primary-foreground type-label text-background hover:bg-primary-foreground/90",
         "pill-outline":
           "rounded-full border-foreground/35 type-label text-foreground hover:border-foreground/60 hover:bg-foreground/5",
         "icon-outline":

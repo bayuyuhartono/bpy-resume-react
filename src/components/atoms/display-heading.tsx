@@ -13,6 +13,7 @@ const displayHeadingVariants = cva("type-display m-0", {
       stat: "text-display-stat",
       footer: "text-display-footer leading-[0.8]",
       notFound: "text-display-404 leading-[0.8]",
+      callout: "text-[34px] md:text-[clamp(36px,3.6vw,52px)]",
       xl: "text-[32px] md:text-[40px]",
       lg: "text-3xl md:text-[clamp(32px,3.4vw,48px)]",
       md: "text-3xl md:text-[34px]",
